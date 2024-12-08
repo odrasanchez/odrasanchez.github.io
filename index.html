@@ -57,43 +57,37 @@
     <article id="formulario">
       <h2>Entradas</h2>
       <img src="./img/tickets.png" alt="Entradas" />
-      <form>
+      <form id="ticketForm">
         <label>Nombre</label>
-        <input type="text" />
+        <input type="text" required />
         <br>
         <br>
         <label>E-mail</label>
-        <input type="email" />
+        <input type="email" required />
         <br>
         <br>
         <label>Teléfono</label>
-        <input type="tel" />
+        <input type="tel" required />
         <br>
         <br>
         <label>Boletos</label>
-        <input type="number" min="1" />
+        <input type="number" min="1" required />
         <br>
         <br>
-        <label>Funcion</label>
+        <label>Función</label>
         <select id="category" name="category" required>
-          <option disabled selected>-- Elige una opción --</option>
-          <option>En Casa de Faraones - Martes 10:30 a.m</option>
-          <option>En Casa de Faraones - Jueves 04:30 p.m.</option>
-          <option>Resurgiendo de la Oscuridad - Miércoles 12:30 p.m.</option>
-          <option>Resurgiendo de la Oscuridad - Viernes 01:30 p.m.</option>
-          <option>Pop: Arte y expresión - Martes 12:30 p.m.</option>
-          <option>Pop: Arte y expresión - Miércoles 08:00 p.m.</option>
+          <option value="" disabled selected>-- Elige una opción --</option>
+          <option value="faraones-martes">En Casa de Faraones - Martes 10:30 a.m</option>
+          <option value="faraones-jueves">En Casa de Faraones - Jueves 04:30 p.m.</option>
+          <option value="oscuridad-miercoles">Resurgiendo de la Oscuridad - Miércoles 12:30 p.m.</option>
+          <option value="oscuridad-viernes">Resurgiendo de la Oscuridad - Viernes 01:30 p.m.</option>
+          <option value="pop-martes">Pop: Arte y expresión - Martes 12:30 p.m.</option>
+          <option value="pop-miercoles">Pop: Arte y expresión - Miércoles 08:00 p.m.</option>
         </select>
-        <!-- <label>Fecha</label>
-        <input type="date" />
         <br>
         <br>
-        <label>Horario</label>
-        <input type="time" /> -->
-        <br>
-        <br>
+        <button type="submit">Obtener Boletos</button>
       </form>
-      <button type="submit">Obtener Boletos</button>
     </article>
   </section>
   <footer>
@@ -118,5 +112,19 @@
     </div>
   </footer>
 </body>
+<script>
+  const form = document.getElementById('ticketForm');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Evita el envío predeterminado del formulario
+
+    if (form.checkValidity()) {
+      alert("¡Gracias por tu compra! Tus boletos estarán disponibles en tu correo");
+      location.reload();
+    } else {
+      form.reportValidity();
+    }
+  });
+</script>
 
 </html>
