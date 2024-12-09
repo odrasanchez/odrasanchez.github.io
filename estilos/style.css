@@ -32,6 +32,11 @@ header img {
   padding-left: 25px;
 }
 
+header #icono{
+  width: 130px;
+  padding-left: 10px;
+}
+
 nav {
   height: 100px;
   background-image: url(../img/fondo-pantalla.jpg);
